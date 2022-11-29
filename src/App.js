@@ -2,7 +2,7 @@ import './App.css';
 import Modules from './components/Modules';
 import Canvas from './components/Canvas';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import Header from './components/Header';
 import { templates } from "./data";

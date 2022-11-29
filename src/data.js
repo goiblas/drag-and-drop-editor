@@ -6,7 +6,6 @@ import barChartTemplateImage from './assets/template-bar-chart.png';
 import balanceTemplateImage from './assets/template-balance.png';
 import textTemplateImage from './assets/template-text.png';
 import transactionsTemplateImage from './assets/template-transactions.png';
-import { v4 as uuid } from 'uuid';
 
 export const modules = [{
     type: "balance",
