@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b430167.css",
+    "main.js": "/static/js/main.e5fefd05.js",
+    "static/media/template-transactions.png": "/static/media/template-transactions.c21f0fead137a0310712.png",
+    "static/media/template-balance.png": "/static/media/template-balance.35d85f3c6fa9d6b61cdd.png",
+    "static/media/template-text.png": "/static/media/template-text.c57d088ca88f09a7b2be.png",
+    "index.html": "/index.html",
+    "main.4b430167.css.map": "/static/css/main.4b430167.css.map",
+    "main.e5fefd05.js.map": "/static/js/main.e5fefd05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b430167.css",
+    "static/js/main.e5fefd05.js"
+  ]
+}
