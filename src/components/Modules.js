@@ -15,6 +15,7 @@ const Modules = () => {
       <Droppable droppableId="MODULES" isDropDisabled={true}>
           {(provided, snapshot) => (
               <div className="modules" {...provided.droppableProps} ref={provided.innerRef}>
+                  <div className="modules-container">
                   {modules.map((item, index) => (
                     <Draggable
                           key={item.type}
@@ -41,6 +42,7 @@ const Modules = () => {
                         </Draggable>
                   ))}
                   {provided.placeholder}
+                  </div>
               </div>
           )}
       </Droppable>
