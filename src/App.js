@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import Header from './components/Header';
 import { templates } from "./data";
+import Config from './components/Config';
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -28,7 +29,7 @@ const initialBlocks = [{
 
 function App() {
   const [items, setItems] = useState(initialBlocks);
-
+  const [selected, setSelected] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const handleDragEnd = result => {
@@ -78,6 +79,8 @@ function App() {
             isDragging={isDragging}
             blocks={items}
             onDelete={handleDelete}
+            onEdit={id => setSelected(id)}
+            selectedId={selected}
             />
           <Modules />
         </div>
@@ -86,6 +89,7 @@ function App() {
     <div className="footer">
         <button type='button' className='main-button' onClick={handleSave}>Guardar</button>
     </div>
+    {selected && <Config id={selected} onClose={() => setSelected(null)} />}
   </>
   );
 }

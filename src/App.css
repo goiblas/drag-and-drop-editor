@@ -246,3 +246,48 @@
 .canvas-bg {
   background-color: #F3F2FB;
 }
+
+.config {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(86vw, 540px);
+  background-color: #fff;
+  z-index: 11;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 15%);
+  padding: 20px;
+}
+
+.config-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.config-main {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.config-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.config-image img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 800px) {
+  .config-image {
+    padding: 20px;
+  }
+}
+
+.template-selected {
+  outline: 2px dashed #3420B9 !important;
+  z-index: 1;
+  box-shadow: 0 0 15px rgb(52 32 185 / 33%) !important;
+}

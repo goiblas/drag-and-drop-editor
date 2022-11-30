@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import headerImage from '../assets/template-header.png';
 import DeleteIcon from "./DeleteIcon";
+import EditIcon from "./EditIcon";
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
@@ -13,7 +14,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
       ...draggableStyle
   });
   
-const Canvas = ({ blocks, onDelete, isDragging }) => {    
+const Canvas = ({ blocks, onDelete, isDragging, onEdit, selectedId }) => {    
     return (
         <Droppable droppableId="CANVAS">
         {(provided, snapshot) => (
@@ -29,7 +30,7 @@ const Canvas = ({ blocks, onDelete, isDragging }) => {
                             <Draggable draggableId={block.id} index={index}>
                                 {(provided, snapshot) => (
                                     <div
-                                    className="template"
+                                    className={`template ${block.id === selectedId ? "template-selected" : ""}`}
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
@@ -41,6 +42,9 @@ const Canvas = ({ blocks, onDelete, isDragging }) => {
                                         <img src={block.image} alt={block.title} />
                                         <div className="template-actions">
                                             <div className="actions-group">
+                                                <button type="button" className="icon-button" onClick={() => onEdit(block.id)}>
+                                                    <EditIcon />    
+                                                </button>
                                                 <button type="button" className="icon-button" onClick={() => onDelete(block.id)}>
                                                     <DeleteIcon />
                                                 </button>
