@@ -21,10 +21,9 @@ const Canvas = ({ blocks, onDelete, isDragging, onEdit, selectedId }) => {
             <div className="canvas" ref={provided.innerRef}>
                 <div className="canvas-bg">
                     <img src={headerImage} className="canvas-header" alt="" />
-                    {blocks.length === 0 && ( <div>Drop modules here</div>)}
-                    {isDragging && !snapshot.isDraggingOver &&  (
-                            <div className="dragging-mark" />
-                        )}
+                    {isDragging &&  (
+                                <div className="dragging-mark"><div /></div>
+                            )}
                     {blocks.map((block, index) => (
                         <Fragment key={block.id}>
                             <Draggable draggableId={block.id} index={index}>
