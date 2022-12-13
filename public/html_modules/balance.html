@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+
+    <!-- Sets size and scale of the viewport. -->
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+
+    <!-- IE=Edge makes good things happen on Windows Phones. (https://www.emailonacid.com/blog/article/email-development/demystifying-meta-tags-in-email) -->
+    <!--[if !mso]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+
+    <!-- Disables auto-scaling in iOS Mail 10. (https://litmus.com/blog/9-things-you-need-to-know-about-email-in-ios-10) -->
+    <meta name="x-apple-disable-message-reformatting">
+
+    <!-- Will display in auto-preview area in some clients. -->
+    <title></title>
+
+    <!-- Desktop Outlook defaults to Times New Roman. Forces a less obscene fallback font. -->
+    <!--[if mso]>
+    <style>
+        * {
+            font-family: sans-serif !important;
+        }
+    </style>
+    <![endif]-->
+
+    <!-- Webfont reference. For current support: http://stylecampaign.com/blog/2015/02/webfont-support-in-email -->
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <!--<![endif]-->
+
+    <style>
+        /* Box sizing. Gets decent support. (https://freshmail.com/developers/best-practices-for-email-coding) */
+        *,
+        *:after,
+        *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /* Prevents small text resizing. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Basic reset. Removes default spacing around emails in various clients. (https://templates.mailchimp.com/development/css/reset-styles) */
+        html,
+        body,
+        .document {
+            width: 100% !important;
+            /* TODO: problem for calculate iframe height */
+            /* height: 100% !important; */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Improves text rendering when supported. */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Centers email to device width in Android 4.4. (https://blog.jmwhite.co.uk/2015/09/19/revealing-why-emails-appear-off-centre-in-android-4-4-kitkat) */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* Removes added spacing within tables in Outlook. (https://templates.mailchimp.com/development/css/client-specific-styles) */
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* Removes added spacing within tables in WebKit. */
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin: 0 auto;
+        }
+
+        /* Responsive images. Improves rendering of scaled images in IE. */
+        img {
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            border: 0;
+        }
+
+        /* Overrules triggered links in iOS. */
+        *[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        /* Overrules triggered links in Gmail. */
+        .x-gmail-data-detectors,
+        .x-gmail-data-detectors *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+        }
+
+        /* Adds hover effects on buttons. */
+        .btn {
+            -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+        }
+
+        .btn:hover {
+            background-color: #222222;
+            border-color: #222222;
+        }
+
+        /* Media queries o' doom. */
+        @media screen and (max-width: 450px) {
+
+            /* Transitions container to a fluid layout. */
+            .container {
+                width: 100%;
+                margin: auto;
+            }
+
+            .main-content {
+                padding: 0 10px !important;
+            }
+
+            [data-ios-selector].main-content {
+                padding: 0 20px !important;
+            }
+
+            /* Collapses table cells into full-width rows. */
+            .stack {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Centers and expands CTA. */
+            .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body bgcolor="#ffffff">
+    <div style="font-family: -apple-system, sans-serif; padding:16px 8px">
+        <div style="font-family: -apple-system, sans-serif;margin: 0 0 15px 0;">
+            <b style="font-size: 16px;">Saldos</b>
+            <span style="font-size: 14px; color:#999">(últimos saldos
+                conocidos)</span>
+        </div>
+
+        <div style="padding: 15px; border-radius: 10px; background-color: #F7F4F1;margin-top: 10px;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: -apple-system, sans-serif;
+font-size: 16px; line-height: 24px;">
+                <tbody>
+
+                    <tr>
+                        <td valign="top">
+                            <img src="https://banktrack.s3.eu-west-1.amazonaws.com/providers_logos/paypal.png"
+                                width="28">
+                        </td>
+                        <td align="right">
+                            <b style="font-size: 18px">31,22€</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px; color: #777">
+                            PayPal · PayPal (EUR)
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div style="padding: 15px; border-radius: 10px; background-color: #F7F4F1;margin-top: 10px;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: -apple-system, sans-serif;
+font-size: 16px; line-height: 24px;">
+                <tbody>
+
+                    <tr>
+                        <td valign="top">
+                            <img src="https://banktrack.s3.eu-west-1.amazonaws.com/providers_logos/paypal.png"
+                                width="28">
+                        </td>
+                        <td align="right">
+                            <b style="font-size: 18px">0,00US$</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px; color: #777">
+                            PayPal · PayPal (USD)
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div style="padding: 15px; border-radius: 10px; background-color: #F7F4F1;margin-top: 10px;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: -apple-system, sans-serif;
+font-size: 16px; line-height: 24px;">
+                <tbody>
+
+                    <tr>
+                        <td valign="top">
+                            <img src="https://static.afterbanks.com/api/icons/openbank.min.png" width="28">
+                        </td>
+                        <td align="right">
+                            <b style="font-size: 18px">3.400,78€</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px; color: #777">
+                            OpenBank · CUENTA CORRIENTE
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div style="padding: 15px; border-radius: 10px; background-color: #F7F4F1;margin-top: 10px;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: -apple-system, sans-serif;
+font-size: 16px; line-height: 24px;">
+                <tbody>
+
+                    <tr>
+                        <td valign="top">
+                            <img src="https://static.afterbanks.com/api/icons/kutxabank.min.png" width="28">
+                        </td>
+                        <td align="right">
+                            <b style="font-size: 18px">1.163,10€</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px; color: #777">
+                            Kutxabank · Principal
+                        </td>
+
+                        <td align="right" valign="top">
+                            <span style="font-size: 14px; color: #469B4A">+0,00
+                                €</span>
+                            &nbsp;
+                            <span style="font-size: 14px; color: #D15554">-105,45
+                                €</span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div style="padding: 15px; border-radius: 10px; background-color: #F7F4F1;margin-top: 10px;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: -apple-system, sans-serif;
+font-size: 16px; line-height: 24px;">
+                <tbody>
+
+                    <tr>
+                        <td valign="top">
+                            <img src="https://static.afterbanks.com/api/icons/kutxabank.min.png" width="28">
+                        </td>
+                        <td align="right">
+                            <b style="font-size: 18px">785,73€</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px; color: #777">
+                            Kutxabank · Carol
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

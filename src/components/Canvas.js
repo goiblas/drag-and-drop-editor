@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import headerImage from '../assets/template-header.png';
+import headerImage from '../assets/header-template-simple.png';
 import DeleteIcon from "./DeleteIcon";
 import EditIcon from "./EditIcon";
-import Loading from "./Loading";
+import Block from "./Block";
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
@@ -16,9 +16,6 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   });
   
 const Canvas = ({ blocks, onDelete, onEdit, selectedId }) => {    
-    useEffect(() => {
-        console.log("blocks", blocks);
-    }, [blocks]);
     return (
         <Droppable droppableId="CANVAS">
         {(provided, snapshot) => (
@@ -39,14 +36,9 @@ const Canvas = ({ blocks, onDelete, onEdit, selectedId }) => {
                                             provided.draggableProps.style
                                             )}
                                             >
-                                            {block.loading && (
-                                                <div className="template-loading">
-                                                    <Loading />
-                                                </div>
-                                            )}
-                                            {!block.loading && (
-                                                <img src={block.image} alt={block.title} />
-                                            )}
+
+                                            <Block isLoading={block.loading} type={block.type}  />
+
                                             <div className="template-actions">
                                                 <div className="actions-group">
                                                     <button type="button" className="icon-button" onClick={() => onEdit(block.id)}>
@@ -60,6 +52,7 @@ const Canvas = ({ blocks, onDelete, onEdit, selectedId }) => {
                                         </div>
                                     )}
                                 </Draggable>
+                                {/* <div className="separator" /> */}
                         </Fragment>
                     ))}
                     {provided.placeholder}

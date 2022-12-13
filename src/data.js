@@ -28,18 +28,22 @@ export const modules = [{
 export const templates = {
     bar_chart: {
         title: "Gráfico",
-        image: barChartTemplateImage
+        image: barChartTemplateImage,
+        type: "bar_chart"
     },
     balance: {
-        title: "Gráfico",
-        image: balanceTemplateImage
+        title: "Balances",
+        image: balanceTemplateImage,
+        type: "balance"
     },
     text: {
         title: "Texto",
-        image: textTemplateImage
+        image: textTemplateImage,
+        type: "text"
     },
     transactions: {
         title: "Transacciones",
-        image: transactionsTemplateImage
+        image: transactionsTemplateImage,
+        type: "transactions"
     }
 }
