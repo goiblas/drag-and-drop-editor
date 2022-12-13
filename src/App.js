@@ -16,6 +16,18 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
+const changeItem = (list, id, changes) => {
+  const result = Array.from(list);
+  const index = result.findIndex(item => item.id === id);
+  const item = result[index];
+  result[index] = {
+    ...item,
+    ...changes
+  };
+
+  return result;
+};
+
 const copy = (item, destination, position) => {
   const destClone = Array.from(destination);
   destClone.splice(position, 0, item);
@@ -41,11 +53,18 @@ function App() {
     }
 
     if(source.droppableId === "MODULES") {
+      const id = uuid();
       const item = {
-        id: uuid(),
+        id,
+        loading: true,
         ...templates[draggableId]
       }
+      console.log(item)
       setItems( copy(item, items, destination.index));
+
+      setTimeout(() => {
+        setItems(prevItems  => changeItem(prevItems, id, { loading: false }))
+      }, 2000);
     }
 
     if (source.droppableId === "CANVAS") {
