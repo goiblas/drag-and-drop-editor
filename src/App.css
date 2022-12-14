@@ -222,12 +222,6 @@
   padding: 8px;
 }
 
-.template img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .dragging-mark div {
   height: 40px;
   background-color: #F3F3FC;
@@ -373,7 +367,16 @@ iframe {
   pointer-events: none;
 }
 
-.separator {
-  height: 24px;
-  background-color: #fff;
+.module-container {
+  height: 124px;
+  overflow: hidden;
+  transition: height 0.3s ease 0.1s;
+  background: #fff;
 }
+
+.module-formater {
+  background-color: #fff;
+  padding: 4px 0 16px;
+}
+
+.module-balance {}
