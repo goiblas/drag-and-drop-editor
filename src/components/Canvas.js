@@ -3,7 +3,8 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import headerImage from '../assets/header-template-simple.png';
 import DeleteIcon from "./DeleteIcon";
 import EditIcon from "./EditIcon";
-import Block from "./Block";
+// import Block from "./Block";
+import BlockHtml from "./BlockHtml";
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
@@ -37,7 +38,8 @@ const Canvas = ({ blocks, onDelete, onEdit, selectedId }) => {
                                             )}
                                             >
 
-                                            <Block isLoading={block.loading} type={block.type}  />
+                                            {/* <Block isLoading={block.loading} type={block.type}  /> */}
+                                            <BlockHtml isLoading={block.loading} type={block.type} html={block.html}  />
 
                                             <div className="template-actions">
                                                 <div className="actions-group">
@@ -52,7 +54,6 @@ const Canvas = ({ blocks, onDelete, onEdit, selectedId }) => {
                                         </div>
                                     )}
                                 </Draggable>
-                                {/* <div className="separator" /> */}
                         </Fragment>
                     ))}
                     {provided.placeholder}
